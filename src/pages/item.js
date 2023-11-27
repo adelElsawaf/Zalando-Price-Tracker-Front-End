@@ -15,8 +15,7 @@ function ItemDetails() {
     const [currency, setCurrency] = useState("")
     const [availability, setAvailability] = useState("")
     const [latestDate, setLatestDate] = useState("")
-
-    const { data: item, itemError, itemLoading } = useFetch("http://ec2-51-20-96-112.eu-north-1.compute.amazonaws.com:8080/items" + itemId)
+    const { data: item, itemError, itemLoading } = useFetch("http://ec2-51-20-96-112.eu-north-1.compute.amazonaws.com:8080/items/" + itemId)
     const [priceHistory, setPriceHistory] = useState(null)
     function handleSizeClick(itemVariation) {
         setSelectedSize(itemVariation.size)
@@ -30,7 +29,7 @@ function ItemDetails() {
     useEffect(() => {
         const fetchPriceHistory = async () => {
             try {
-                const response = await fetch(`http://ec2-51-20-96-112.eu-north-1.compute.amazonaws.com:8080/items${itemId}/price?size=${selectedSize}&color=${item.variationList[0].color}`);
+                const response = await fetch(`http://ec2-51-20-96-112.eu-north-1.compute.amazonaws.com:8080/items/${itemId}/price?size=${selectedSize}&color=${item.variationList[0].color}`);
                 const jsonData = await response.json();
                 setPriceHistory(jsonData);
             } catch (error) {
