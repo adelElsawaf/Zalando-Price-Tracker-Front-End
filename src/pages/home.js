@@ -16,7 +16,7 @@ function Home() {
           <form className='w-50 d-flex flex-column align-items-center'>
             <h3 className='form-label'>Item Link</h3>
             <input type='url' className='form-control mb-3' onChange={e => setEnteredUrl(e.target.value)}  placeholder='Please enter a valid link'></input>
-            <Link to={{ pathname: '/item/' + getItemIdFromUrl(enteredUrl) }} state={{ itemId:  getItemIdFromUrl(enteredUrl) }} class="btn bg-orange" >Get History</Link>
+            <Link to={{ pathname: '/item/' + getItemIdFromUrl(enteredUrl) }} state={{ itemId:  getItemIdFromUrl(enteredUrl) }} class="btn bg-orange lh-lg fw-bold" >Get History</Link>
           </form>
         </div>
       </div>
